@@ -24,17 +24,17 @@
     <!-- Navbar Start -->
     <div class="row">
       <!-- <div class="navBar"> -->
-        <div class="col-1 navBar">
-          <button
-            type="button"
-            class="btn btn-success"
-            id="pause"
-            data-pause="false"
-          >
-            Start
-          </button>
-        </div>
-        <div class="col-2">
+      <div class="col-1 navBar">
+        <button
+          type="button"
+          class="btn btn-success"
+          id="pause"
+          data-pause="false"
+        >
+          Start
+        </button>
+      </div>
+      <!-- <div class="col-2">
           <div class="form-group">
             <label for="p1action">Player 1 Action</label>
             <select class="form-control" id="p1action">
@@ -53,11 +53,39 @@
               <option>Sweep</option>
             </select>
           </div>
-        </div>
+        </div> -->
       <!-- </div> -->
     </div>
     <!-- Navbar End -->
     <div class="wrapper">
+      <!-- Player 1 Ability Buttons -->
+      <div class="row">
+        <!-- Player 1 Ability 1 -->
+        <div class="col-3">
+          <button type="button" class="btn btn-success" id="p1attack1">
+            Attack 1
+          </button>
+        </div>
+        <!-- Player 1 Ability 2 -->
+        <div class="col-3" style="text-align: center;">
+          <button type="button" class="btn btn-danger" id="p1attack2">
+            Attack 2
+          </button>
+        </div>
+        <!-- Player 1 Ability 3 -->
+        <div class="col-3" style="text-align: center;">
+          <button type="button" class="btn btn-warning" id="p1attack3">
+            Attack 3
+          </button>
+        </div>
+        <!-- Player 1 Ability 4 -->
+        <div class="col-3" style="text-align: right;">
+          <button type="button" class="btn btn-info" id="p1attack4">
+            Attack 4
+          </button>
+        </div>
+      </div>
+    </br>
       <!-- Player 1 Intent Bar -->
       <div class="progress">
         <div
@@ -136,6 +164,34 @@
           id="player2intent"
         >
           Defend
+        </div>
+      </div>
+    </br>
+      <!-- Player 2 Ability Buttons -->
+      <div class="row">
+        <!-- Player 2 Ability 1 -->
+        <div class="col-3">
+          <button type="button" class="btn btn-success" id="p2attack1">
+            Attack 1
+          </button>
+        </div>
+        <!-- Player 2 Ability 2 -->
+        <div class="col-3" style="text-align: center;">
+          <button type="button" class="btn btn-danger" id="p2attack2">
+            Attack 2
+          </button>
+        </div>
+        <!-- Player 2 Ability 3 -->
+        <div class="col-3" style="text-align: center;">
+          <button type="button" class="btn btn-warning" id="p2attack3">
+            Attack 3
+          </button>
+        </div>
+        <!-- Player 2 Ability 4 -->
+        <div class="col-3" style="text-align: right;">
+          <button type="button" class="btn btn-info" id="p2attack4">
+            Attack 4
+          </button>
         </div>
       </div>
     </div>
