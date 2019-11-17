@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Colosseum</title>
+    <!-- Bootstrap 4.0 -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <!-- App specific CSS -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      media="screen"
+      href="assets/css/style.css"
+    />
+  </head>
+  <body>
+    <!-- Navbar Start -->
+    <div class="row">
+      <!-- <div class="navBar"> -->
+        <div class="col-1 navBar">
+          <button
+            type="button"
+            class="btn btn-success"
+            id="pause"
+            data-pause="false"
+          >
+            Start
+          </button>
+        </div>
+        <div class="col-2">
+          <div class="form-group">
+            <label for="p1action">Player 1 Action</label>
+            <select class="form-control" id="p1action">
+              <option>Punch</option>
+              <option>Kick</option>
+              <option>Sweep</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="form-group">
+            <label for="p2action">Player 2 Action</label>
+            <select class="form-control" id="p2action">
+              <option>Punch</option>
+              <option>Kick</option>
+              <option>Sweep</option>
+            </select>
+          </div>
+        </div>
+      <!-- </div> -->
+    </div>
+    <!-- Navbar End -->
+    <div class="wrapper">
+      <!-- Player 1 Intent Bar -->
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          style="width:10%"
+          id="player1intentbuffer"
+        ></div>
+        <div
+          class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+          role="progressbar"
+          style="width:5%"
+          id="player1intent"
+        >
+          Attack
+        </div>
+      </div>
+      <!-- Player 1 Combat Bar -->
+      <div class="progress">
+        <div
+          class="progress-bar bg-primary"
+          role="progressbar"
+          style="width:0%"
+          id="player1"
+        >
+          Player 1
+        </div>
+      </div>
+      <!-- Middle Status Bar (Static) -->
+      <div class="progress">
+        <div
+          class="progress-bar bg-success"
+          role="progressbar"
+          style="width:50%"
+        >
+          Intent
+        </div>
+        <div
+          class="progress-bar bg-warning"
+          role="progressbar"
+          style="width:25%"
+        >
+          Execute
+        </div>
+        <div
+          class="progress-bar bg-danger"
+          role="progressbar"
+          style="width:25%"
+        >
+          Complete
+        </div>
+      </div>
+      <!-- Player 2 Combat Bar -->
+      <div class="progress">
+        <div
+          class="progress-bar bg-primary"
+          role="progressbar"
+          style="width:0%"
+          id="player2"
+        >
+          Player 2
+        </div>
+      </div>
+      <!-- Player 2 Intent Bar -->
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          style="width:20%"
+          id="player2intentbuffer"
+        ></div>
+        <div
+          class="progress-bar progress-bar-striped progress-bar-animated bg-info"
+          role="progressbar"
+          style="width:5%"
+          id="player2intent"
+        >
+          Defend
+        </div>
+      </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>

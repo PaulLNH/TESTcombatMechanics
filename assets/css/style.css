@@ -1,0 +1,30 @@
+.wrapper {
+  padding: 200px 0;
+  /* align-items: center; */
+  /* line-height: 200px; */
+  /* height: 200px; */
+  margin: auto;
+  /* text-align: center; */
+  width: 50vw;
+  /* height: 50VH; */
+}
+
+.navBar {
+  /* border: 1px solid black; */
+  height: 5em;
+  line-height: 5em;
+  padding: 0 15px;
+  margin: 0 25px;
+}
+
+#player1intentbuffer {
+  background-color: rgb(230, 230, 230);
+}
+
+#player2intentbuffer {
+  background-color: rgb(230, 230, 230);
+}
+
+.form-group {
+  width: 10VW;
+}
