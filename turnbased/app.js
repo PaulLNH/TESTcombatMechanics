@@ -46,7 +46,7 @@
 //   }
 // };
 
-let player = {
+let Player = {
   health: 50,
   init: true,
   enduranceBase: 3,
@@ -110,8 +110,8 @@ let Gayacus = {
   attackBonus: 0,
   defenseBonus: 0,
   queue: [
-    { actor: "gayacus", time: 1, ability: "punch" },
-    { actor: "player", time: 1, init: true, ability: "body_slam" }
+    { actor: "gayacus", time: 1, ability: "body_slam" },
+    { actor: "gayacus", time: 1, ability: "punch" }
   ],
   abilities: {
     strength: {
@@ -156,15 +156,42 @@ let Gayacus = {
 };
 
 const playTurn = (attacker, defender) => {
-  let init = "attacker";
-  let tempQueue = [];
+  let init = "a";
   let combatQueue = [];
+  let attackerTime = 0;
+  let defenderTime = 0;
   attacker.queue.forEach(action => {
-    tempQueue.push(action);
+    action.time += attackerTime;
+    attackerTime += action.time;
+    combatQueue.push(action);
   });
   defender.queue.forEach(action => {
-    tempQueue.push(action);
+    action.time += defenderTime;
+    defenderTime += action.time;
+    combatQueue.push(action);
   });
+  console.log("==================== unsorted ====================");
   console.log(combatQueue);
-  combatQueue.sort((a, b) => (a.time > b.time) ? 1 : (init === attacker));
+  console.log("==================================================");
+  console.log("\n");
+  console.log("\n");
+  const sortedQueue = combatQueue.sort((a, b) => {
+    if (a.time > b.time) {
+      if (a.init) {
+        return 1;
+      } else if (b.init) {
+        return 1;
+      }
+      return 1;
+    } else {
+      return -1;
+    }
+  });
+  console.log("==================== sorted ====================");
+  console.log(sortedQueue, "sorted");
+  console.log("================================================");
+  console.log("\n");
+  console.log("\n");
 };
+
+playTurn(Player, Gayacus);
