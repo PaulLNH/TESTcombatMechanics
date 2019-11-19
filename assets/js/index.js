@@ -7,27 +7,37 @@ class Entity {
     this.maxEndurance = maxEndurance;
     this.endurance = maxEndurance
   }
-  takeDamage(damage) {
-    this.health -= damage;
-    console.log(`${this.name} loses ${damage} health.`);
-  }
-  getEndrance() {
-    return this.endurance;
-  }
-  useEndurance(cost) {
-    this.endurance -= cost;
-  }
-  gainEndurance(amount) {
-    this.endurance += amount;
-  }
-  heal(healing) {
-    this.health += healing;
-    console.log(`${this.name} gains ${healing} health.`);
-  }
   getHealth() {
     console.log(`${this.name} has ${this.health} health.`);
     return this.health;
   }
+  addHealth(amount) {
+    this.health += amount;
+    console.log(`${this.name} gains ${amount} health.`);
+  }
+  removeHealth(cost) {
+    this.health -= cost;
+    console.log(`${this.name} loses ${cost} health.`);
+  }
+  getEndurance() {
+    console.log(`${this.name} has ${this.endurance} endurance.`);
+    return this.endurance;
+  }
+  addEndurance(amount) {
+    this.endurance += amount;
+    console.log(`${this.name} gains ${amount} endurance.`);
+  }
+  removeEndurance(cost) {
+    this.endurance -= cost;
+    console.log(`${this.name} loses ${this.cost} endurance.`);
+  }
+// duplicate of addHealth?
+/*
+  heal(healing) {
+    this.health += healing;
+    console.log(`${this.name} gains ${healing} health.`);
+  }
+*/
   isDead() {
     return this.health <= 0 ? true : false;
   }
@@ -47,8 +57,8 @@ class Abilities {
     let damage = attackerDamage - opponentDefense;
     console.log(attackerDamage, "damage - def");
     console.log(damage, "damage final");
-    actor.useEndurance(enduranceCost);
-    opponent.takeDamage(damage);
+    actor.removeEndurance(enduranceCost);
+    opponent.removeHealth(damage);
   }
 }
 
@@ -66,7 +76,7 @@ const mods = {
   }
 }
 
-Draaxx.takeDamage(15);
+Draaxx.removeHealth(15);
 Draaxx.getHealth();
 console.log(Draaxx.isDead());
 cast.slash(Draaxx, Gayacus, mods);

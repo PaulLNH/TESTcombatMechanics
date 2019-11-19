@@ -4,7 +4,7 @@
  *
  * @param {Array} actionQueue Action objects
  *
- * @return {Array} Actions that presist past this round
+ * @return {Array} Actions that persist past this round
  */
 module.export = processRound = actionQueue => {
   /**
@@ -41,16 +41,16 @@ module.export = processRound = actionQueue => {
   };
 
   /**
-   * @function preformActions
+   * @function performActions
    * @description Performs actions in order
    *
    * @param {Array} actions Action objects
    *
-   * @return {Array} Actions that presist past this round
+   * @return {Array} Actions that persist past this round
    */
-  const preformActions = actions => {
+  const performActions = actions => {
     // reslove actions by:
-    // iterating over each action calling Actor.preform(action)
+    // iterating over each action calling Actor.perform(action)
     let unresolvedActions =
       "Any action that lasts multiple turns or has an affect that presists past this turn";
     return unresolvedActions;

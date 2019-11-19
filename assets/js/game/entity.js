@@ -12,45 +12,55 @@ class Entity {
     this.auras = [];
   }
   getName() {
+    console.log(`Entity name is ${this.name}.`);
     return this.name;
-  }
-  takeDamage(damage) {
-    this.health -= damage;
-    console.log(`${this.name} loses ${damage} health.`);
-  }
-  addAura(aura) {
-    this.auras.push(aura);
-    return this;
-  }
-  getAuras() {
-    return this.auras;
-  }
-  getEndrance() {
-    return this.endurance;
-  }
-  useEndurance(cost) {
-    this.endurance -= cost;
-    return this;
-  }
-  gainEndurance(amount) {
-    this.endurance += amount;
-    return this;
-  }
-  heal(healing) {
-    this.health += healing;
-    console.log(`${this.name} gains ${healing} health.`);
-    return this;
   }
   getHealth() {
     console.log(`${this.name} has ${this.health} health.`);
     return this.health;
   }
+  addHealth(amount) {
+    this.health += amount;
+    console.log(`${this.name} gains ${amount} health.`);
+    return this;
+  }
+  removeHealth(cost) {
+    this.health -= cost;
+    console.log(`${this.name} loses ${cost} health.`);
+    return this;
+  }
+  getAuras() {
+    return this.auras;
+  }
+  addAura(aura) {
+    this.auras.push(aura);
+    return this;
+  }
+  removeAura(aura) {
+    //Do we need to splice?
+    this.auras.pop(aura);
+    return this;
+  }
+  getEndurance() {
+    console.log(`${this.name} has ${this.endurance} endurance.`)
+    return this.endurance;
+  }
+  addEndurance(amount) {
+    this.endurance += amount;
+    console.log(`${this.name} gains ${amount} endurance.`);
+    return this;
+  }
+  removeEndurance(cost) {
+    this.endurance -= cost;
+    console.log(`${this.name} loses ${cost} endurance.`)
+    return this;
+  }
   isDead() {
     return this.health <= 0 ? true : false;
   }
-  preform(name) {
+  perform(name) {
     // get action object, save it to actor
-    // check to see if this action can be preformed
+    // check to see if this action can be performed
     // calculate and adjust resources
     this.action = Action[name];
     this.action.auras.forEach(aura => {
@@ -88,6 +98,6 @@ const Draaxx = new Entity("player", "Draaxx", 80, 3);
 const Gayacus = new Entity("computer", "Gayacus", 50, 3);
 
 // console.log(Action.slash);
-// Draaxx.preform("slash").on(Gayacus);
-// Draaxx.preform("block");
-Gayacus.preform("body_slam").on(Draaxx);
+// Draaxx.perform("slash").on(Gayacus);
+// Draaxx.perform("block");
+Gayacus.perform("body_slam").on(Draaxx);
