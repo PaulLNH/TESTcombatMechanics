@@ -1,0 +1,14 @@
+{
+  "slammed": {
+    "name": "Slammed",
+    "description": "has been choke slammed onto the arena floor",
+    "affects": "recipient",
+    "duration": 1,
+    "instant_damage": 0,
+    "instant_block": 0,
+    "tick_damage": 0,
+    "tick_block": 0,
+    "tick_rate": 1,
+    "initiative": -1
+  }
+}
