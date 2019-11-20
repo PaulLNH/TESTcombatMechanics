@@ -12,7 +12,6 @@ class Entity {
     this.auras = [];
   }
   getName() {
-    console.log(`Entity name is ${this.name}.`);
     return this.name;
   }
   getHealth() {
@@ -60,12 +59,12 @@ class Entity {
   }
   perform(name) {
     // get action object, save it to actor
+    this.action = Action[name];
     // check to see if this action can be performed
     // calculate and adjust resources
-    this.action = Action[name];
     this.action.auras.forEach(aura => {
-      if (this.affects === "actor") {
-        console.log(`${aura.name} ${aura.description}`);
+      if (aura.affects === "actor") {
+        console.log(`${this.getName()} ${aura.description}`);
       }
     });
     if (this.action.block > 0) {
@@ -79,10 +78,10 @@ class Entity {
   on(recipient) {
     // use this.action on recipient
     console.log(`${this.action.name} was used on ${recipient.getName()}`);
-    console.log(this.action.auras)
+    // console.log(this.action.auras);
     this.action.auras.forEach(aura => {
-      if (this.affects === "recipient") {
-        console.log(`${aura.name} ${aura.description}`);
+      if (aura.affects === "recipient") {
+        console.log(`${recipient.getName()} ${aura.description}`);
       }
     });
     recipient.receive(this.action);

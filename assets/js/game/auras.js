@@ -15,8 +15,7 @@ class Aura {
   }) {
     this.name = name;
     this.description = description;
-    this.affects = affects,
-    this.duration = duration;
+    (this.affects = affects), (this.duration = duration);
     this.instant_damage = instant_damage;
     this.instant_block = instant_block;
     this.tick_damage = tick_damage;
@@ -26,6 +25,5 @@ class Aura {
   }
 }
 
-module.exports = {
-  slammed: new Aura(aura.slammed)
-};
+const slammed = new Aura(aura.slammed);
+module.exports = { slammed };

@@ -15,13 +15,11 @@ class Action {
   }
 }
 
-console.log(Aura.slammed);
-
 module.exports = {
   slash: new Action(action.slash, Aura.slammed),
   block: new Action(action.block),
   dodge: new Action(action.dodge),
   punch: new Action(action.punch),
   kick: new Action(action.kick),
-  body_slam: new Action(action.body_slam)
+  body_slam: new Action(action.body_slam, Aura.slammed)
 }
