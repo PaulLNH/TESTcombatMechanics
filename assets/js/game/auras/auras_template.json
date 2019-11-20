@@ -12,5 +12,21 @@
     "tick_block": 0,
     "tick_rate": 1,
     "initiative": -1
+  },
+  "sharpening_stone": {
+    "name": "Sharpened Blades",
+    "description": "{n} has a well sharpened blade.",
+    "affects": "actor",
+    "duration": -1,
+    "max_stacks": 1,
+    "current_stacks": 1,
+    "instant_damage": 0,
+    "bonus_damage": 1,
+    "instant_block": 0,
+    "bonus_block": 1,
+    "tick_damage": 0,
+    "tick_block": 0,
+    "tick_rate": 1,
+    "initiative": -1
   }
 }
