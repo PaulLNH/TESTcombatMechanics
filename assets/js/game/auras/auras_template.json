@@ -7,11 +7,14 @@
     "max_stacks": 1,
     "current_stacks": 1,
     "instant_damage": 0,
+    "bonus_damage": 0,
     "instant_block": 0,
+    "bonus_block": 0,
     "tick_damage": 0,
     "tick_block": 0,
     "tick_rate": 1,
-    "initiative": -1
+    "initiative": -1,
+    "applies": []
   },
   "sharpening_stone": {
     "name": "Sharpened Blades",
@@ -23,10 +26,45 @@
     "instant_damage": 0,
     "bonus_damage": 1,
     "instant_block": 0,
-    "bonus_block": 1,
+    "bonus_block": 0,
     "tick_damage": 0,
     "tick_block": 0,
     "tick_rate": 1,
-    "initiative": -1
+    "initiative": -1,
+    "applies": []
+  },
+  "serrated_blade": {
+    "name": "Serrated Blade",
+    "description": "{n}'s blade is serrated and will cause severe bleeding.",
+    "affects": "actor",
+    "duration": -1,
+    "max_stacks": 1,
+    "current_stacks": 1,
+    "instant_damage": 0,
+    "bonus_damage": 0,
+    "instant_block": 0,
+    "bonus_block": 0,
+    "tick_damage": 0,
+    "tick_block": 0,
+    "tick_rate": 1,
+    "initiative": -1,
+    "applies": ["bleed"]
+  },
+  "bleed": {
+    "name": "Bleed",
+    "description": "{n} is bleeding.",
+    "affects": "recipient",
+    "duration": -1,
+    "max_stacks": 5,
+    "current_stacks": 1,
+    "instant_damage": 0,
+    "bonus_damage": 1,
+    "instant_block": 0,
+    "bonus_block": 0,
+    "tick_damage": 0,
+    "tick_block": 0,
+    "tick_rate": 1,
+    "initiative": -1,
+    "applies": []
   }
 }
