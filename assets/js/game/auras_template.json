@@ -4,6 +4,8 @@
     "description": "has been choke slammed onto the arena floor",
     "affects": "recipient",
     "duration": 1,
+    "max_stacks": 1,
+    "current_stacks": 1,
     "instant_damage": 0,
     "instant_block": 0,
     "tick_damage": 0,

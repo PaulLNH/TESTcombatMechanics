@@ -7,7 +7,8 @@
     "block": 0,
     "ramp": 2,
     "duration": 1,
-    "initiative": 0
+    "initiative": 0,
+    "auras": []
   },
   "block": {
     "name": "Block",
@@ -17,7 +18,8 @@
     "block": 5,
     "ramp": 1,
     "duration": 1,
-    "initiative": 0
+    "initiative": 0,
+    "auras": []
   },
   "dodge": {
     "name": "Dodge",
@@ -27,7 +29,8 @@
     "block": 0,
     "ramp": 0,
     "duration": -1,
-    "initiative": 0
+    "initiative": 0,
+    "auras": []
   },
   "punch": {
     "name": "Punch",
@@ -37,7 +40,8 @@
     "block": 0,
     "ramp": 1,
     "duration": 1,
-    "initiative": 0
+    "initiative": 0,
+    "auras": []
   },
   "kick": {
     "name": "Kick",
@@ -47,7 +51,8 @@
     "block": 0,
     "ramp": 1.5,
     "duration": 1,
-    "initiative": 0
+    "initiative": 0,
+    "auras": []
   },
   "body_slam": {
     "name": "Body Slam",
@@ -57,6 +62,7 @@
     "block": 0,
     "ramp": 1,
     "duration": 2,
-    "initiative": 1
+    "initiative": 1,
+    "auras": ["slammed"]
   }
 }

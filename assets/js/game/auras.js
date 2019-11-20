@@ -1,4 +1,4 @@
-const aura = require("./auras_template.json");
+const Auras = require("./auras_template.json");
 
 class Aura {
   constructor({
@@ -6,6 +6,8 @@ class Aura {
     description,
     affects,
     duration,
+    max_stacks,
+    current_stacks,
     instant_damage,
     instant_block,
     tick_damage,
@@ -15,7 +17,10 @@ class Aura {
   }) {
     this.name = name;
     this.description = description;
-    (this.affects = affects), (this.duration = duration);
+    this.affects = affects;
+    this.duration = duration;
+    this.max_stacks = max_stacks;
+    this.current_stacks = current_stacks;
     this.instant_damage = instant_damage;
     this.instant_block = instant_block;
     this.tick_damage = tick_damage;
@@ -25,5 +30,14 @@ class Aura {
   }
 }
 
-const slammed = new Aura(aura.slammed);
-module.exports = { slammed };
+const auras = {};
+const createAuras = () => {
+  for (let aura in Auras) {
+    if (Auras.hasOwnProperty(aura)) {
+      auras[aura] = new Aura(Auras[aura]);
+    }
+  }
+}
+createAuras();
+
+module.exports = { auras };
