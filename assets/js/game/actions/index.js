@@ -1,5 +1,5 @@
 const Actions = require("./actions_template.json");
-const { auras: Auras } = require("./auras");
+const { auras: Auras } = require("../auras");
 
 class Action {
   constructor(

@@ -57,3 +57,44 @@ module.export = processRound = actionQueue => {
   };
   return unresolvedActions;
 };
+
+// const playTurn = (attacker, defender) => {
+//   let init = "a";
+//   let combatQueue = [];
+//   let attackerTime = 0;
+//   let defenderTime = 0;
+//   attacker.queue.forEach(action => {
+//     action.time += attackerTime;
+//     attackerTime += action.time;
+//     combatQueue.push(action);
+//   });
+//   defender.queue.forEach(action => {
+//     action.time += defenderTime;
+//     defenderTime += action.time;
+//     combatQueue.push(action);
+//   });
+//   console.log("==================== unsorted ====================");
+//   console.log(combatQueue);
+//   console.log("==================================================");
+//   console.log("\n");
+//   console.log("\n");
+//   const sortedQueue = combatQueue.sort((a, b) => {
+//     if (a.time > b.time) {
+//       if (a.init) {
+//         return 1;
+//       } else if (b.init) {
+//         return 1;
+//       }
+//       return 1;
+//     } else {
+//       return -1;
+//     }
+//   });
+//   console.log("==================== sorted ====================");
+//   console.log(sortedQueue, "sorted");
+//   console.log("================================================");
+//   console.log("\n");
+//   console.log("\n");
+// };
+
+// playTurn(Player, Gayacus);
