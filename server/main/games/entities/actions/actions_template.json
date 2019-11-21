@@ -1,0 +1,101 @@
+{
+  "slash": {
+    "name": "Slash",
+    "cost": 2,
+    "description": "A slashing attack",
+    "damage": 15,
+    "block": 0,
+    "ramp": 2,
+    "duration": 1,
+    "initiative": 0,
+    "auras": []
+  },
+  "block": {
+    "name": "Block",
+    "cost": 1,
+    "description": "Raise your shield to reduce damage",
+    "damage": 0,
+    "block": 5,
+    "ramp": 1,
+    "duration": 1,
+    "initiative": 0,
+    "auras": []
+  },
+  "dodge": {
+    "name": "Dodge",
+    "cost": 2,
+    "description": "Move out of the way of the next attack",
+    "damage": 0,
+    "block": 0,
+    "ramp": 0,
+    "duration": -1,
+    "initiative": 0,
+    "auras": []
+  },
+  "punch": {
+    "name": "Punch",
+    "cost": 1,
+    "description": "Punch opponent in the face",
+    "damage": 5,
+    "block": 0,
+    "ramp": 1,
+    "duration": 1,
+    "initiative": 0,
+    "auras": []
+  },
+  "kick": {
+    "name": "Kick",
+    "cost": 1,
+    "description": "Front kick opponent in the chest",
+    "damage": 10,
+    "block": 0,
+    "ramp": 1.5,
+    "duration": 1,
+    "initiative": 0,
+    "auras": []
+  },
+  "body_slam": {
+    "name": "Body Slam",
+    "cost": 2,
+    "description": "Grab your opponent by the throat lifting them into the air, then violently slam them down onto the arena floor",
+    "damage": 5,
+    "block": 0,
+    "ramp": 1,
+    "duration": 2,
+    "initiative": 1,
+    "auras": ["slammed"]
+  },
+  "pommel": {
+    "name": "Pommel",
+    "cost": 2,
+    "description": "Strike with the pommel of your weapon, doing minor damage and stunning them.",
+    "damage": 5,
+    "block": 0,
+    "ramp": 1,
+    "duration": 1,
+    "initiative": 0,
+    "auras": ["stunned"]
+  },
+  "hamstring": {
+    "name": "Hamstring",
+    "cost": 1,
+    "description": "A swift attack to the leg, crippling your opponent.",
+    "damage": 0,
+    "block": 0,
+    "ramp": 0.5,
+    "duration": 2,
+    "initiative": 0,
+    "auras": ["crippled"]
+  },
+  "jab": {
+    "name": "Jab",
+    "cost": 1,
+    "description": "A quick, precise attack.",
+    "damage": 5,
+    "block": 0,
+    "ramp": 0.5,
+    "duration": 1,
+    "initiative": 0,
+    "auras": []
+  }
+}

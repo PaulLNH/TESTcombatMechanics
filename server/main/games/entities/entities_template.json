@@ -1,0 +1,20 @@
+{
+  "thracian": {
+    "type": "Thracian",
+    "description": "the Thracian",
+    "max_health": 80,
+    "current_health": 80,
+    "dead": false,
+    "max_endurance": 3,
+    "current_endurance": 3,
+    "bonus_damage": 0,
+    "max_block": 0,
+    "current_block": 0,
+    "bonus_block": 0,
+    "max_initiative": 0,
+    "current_initiative": 0,
+    "talents": {},
+    "actions": ["slash", "block", "dodge"],
+    "auras": []
+  }
+}

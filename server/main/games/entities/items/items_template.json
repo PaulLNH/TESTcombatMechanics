@@ -1,0 +1,29 @@
+{
+    "buckler": {
+      "name": "Buckler",
+      "description": "Small shield for quickly blocking attacks.",
+      "active": true,
+      "can_be_dropped": true,
+      "strength_aura": "slammed",
+      "defense_aura": "sharpening_stone",
+      "agility_aura": "bleed"
+    },
+    "chainmail": {
+      "name": "Chainmail",
+      "description": "Linked armor that reduces slice attacks to the torso.",
+      "active": true,
+      "can_be_dropped": true,
+      "strength_aura": "slammed",
+      "defense_aura": "sharpening_stone",
+      "agility_aura": "bleed"
+    },
+    "greaves": {
+      "name": "Greaves",
+      "description": "Metal shin guards to deter against low attacks.",
+      "active": true,
+      "can_be_dropped": true,
+      "strength_aura": "slammed",
+      "defense_aura": "sharpening_stone",
+      "agility_aura": "bleed"
+    }
+  }
