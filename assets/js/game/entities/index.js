@@ -1,15 +1,45 @@
 const { actions } = require("../actions");
+const Entities = require("./entities_template.json");
 
 class Entity {
-  constructor(type, name, maxHealth, maxEndurance) {
-    this.type = type;
+  constructor(
+    name,
+    {
+      type,
+      description,
+      max_health,
+      current_health,
+      dead,
+      max_endurance,
+      current_endurance,
+      bonus_damage,
+      max_block,
+      current_block,
+      bonus_block,
+      max_initiative,
+      current_initiative,
+      talents,
+      actions,
+      auras
+    }
+  ) {
     this.name = name;
-    this.maxHealth = maxHealth;
-    this.health = maxHealth;
-    this.maxEndurance = maxEndurance;
-    this.endurance = maxEndurance;
-    this.action = {};
-    this.auras = [];
+    this.type = type;
+    this.description = description;
+    this.max_health = max_health;
+    this.current_health = current_health;
+    this.dead = dead;
+    this.max_endurance = max_endurance;
+    this.current_endurance = current_endurance;
+    this.bonus_damage = bonus_damage;
+    this.max_block = max_block;
+    this.current_block = current_block;
+    this.bonus_block = bonus_block;
+    this.max_initiative = max_initiative;
+    this.current_initiative = current_initiative;
+    this.talents = talents;
+    this.action = actions;
+    this.auras = auras;
   }
   getName() {
     return this.name;
@@ -94,9 +124,11 @@ class Entity {
   }
 }
 
-const Draaxx = new Entity("player", "Draaxx", 80, 3);
-const Gayacus = new Entity("computer", "Gayacus", 50, 3);
+const createPlayer = (name, type) => {
+  if (Entities.hasOwnProperty(type)) {
+    return new Entity(name, Entities[type]);
+  }
+};
+createPlayer("Draaxx", "thracian");
 
-// Draaxx.perform("slash").on(Gayacus);
-// Draaxx.perform("block");
-Gayacus.perform("body_slam").on(Draaxx);
+module.exports = { createPlayer };
