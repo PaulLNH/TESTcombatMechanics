@@ -1,4 +1,4 @@
-const { actions } = require("./actions");
+const { actions } = require("../actions");
 
 class Entity {
   constructor(type, name, maxHealth, maxEndurance) {

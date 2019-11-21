@@ -1,7 +1,7 @@
 {
   "slammed": {
     "name": "Slammed",
-    "description": "{n} has been choke slammed onto the arena floor",
+    "description": "{rn} has been choke slammed onto the arena floor",
     "affects": "recipient",
     "duration": 1,
     "max_stacks": 1,
@@ -18,7 +18,7 @@
   },
   "sharpening_stone": {
     "name": "Sharpened Blades",
-    "description": "{n} has a well-sharpened blade.",
+    "description": "{an} has a well-sharpened blade.",
     "affects": "actor",
     "duration": -1,
     "max_stacks": 1,
@@ -35,7 +35,7 @@
   },
   "serrated_blade": {
     "name": "Serrated Blade",
-    "description": "{n}'s blade is serrated, and will cause severe bleeding.",
+    "description": "{an}'s blade is serrated, and will cause severe bleeding.",
     "affects": "actor",
     "duration": -1,
     "max_stacks": 1,
@@ -52,7 +52,7 @@
   },
   "bleed": {
     "name": "Bleed",
-    "description": "{n} is bleeding.",
+    "description": "{rn} is bleeding.",
     "affects": "recipient",
     "duration": -1,
     "max_stacks": 5,
