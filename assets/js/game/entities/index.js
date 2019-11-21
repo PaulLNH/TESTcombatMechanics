@@ -129,6 +129,5 @@ const createPlayer = (name, type) => {
     return new Entity(name, Entities[type]);
   }
 };
-createPlayer("Draaxx", "thracian");
 
 module.exports = { createPlayer };
