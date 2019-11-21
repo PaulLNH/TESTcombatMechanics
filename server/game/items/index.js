@@ -1,1 +1,0 @@
-const Items = require("./items_template.json");
