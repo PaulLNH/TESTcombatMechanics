@@ -1,0 +1,32 @@
+{
+    "buckler": {
+      "description": "Buckler",
+      "bonus_health": 0,
+      "bonus_endurance": 0,
+      "bonus_damage": 0,
+      "bonus_block": 5,
+      "bonus_ramp": -0.5,
+      "actions": [],
+      "auras": []
+    },
+    "chainmail": {
+        "description": "Chainmail",
+        "bonus_health": 5,
+        "bonus_endurance": 0,
+        "bonus_damage": 0,
+        "bonus_block": 5,
+        "bonus_ramp": 0,
+        "actions": [],
+        "auras": []
+    },
+    "greaves": {
+        "description": "Greaves",
+        "bonus_health": 10,
+        "bonus_endurance": 0,
+        "bonus_damage": 0,
+        "bonus_block": 0,
+        "bonus_ramp": 0,
+        "actions": [],
+        "auras": []
+    }
+  }
