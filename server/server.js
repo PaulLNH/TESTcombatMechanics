@@ -17,5 +17,10 @@ console.log(Slash);
 const character_name = "Draaxx";
 const character_type = "thracian";
 
+const computer_name = "Gayacus";
+const computer_type = "samnite";
+
 const Player = newCharacter(character_name, character_type);
+const Computer = newCharacter(computer_name, computer_type);
 console.log(Player);
+console.log(Computer);

@@ -1,5 +1,9 @@
-const { actions, addAction } = require("./actions");
+const { addAction } = require("./actions");
 const Entities = require("./entities_template.json");
+
+// Entities:
+// Characters - have talents
+// Computers - have loot that can drop
 
 class Entity {
   constructor(
@@ -7,6 +11,8 @@ class Entity {
     {
       type,
       description,
+      name_prefix,
+      name_suffix,
       max_health,
       current_health,
       dead,
@@ -26,6 +32,8 @@ class Entity {
     this.name = name;
     this.type = type;
     this.description = description;
+    this.name_prefix = name_prefix;
+    this.name_suffix = name_suffix;
     this.max_health = max_health;
     this.current_health = current_health;
     this.dead = dead;

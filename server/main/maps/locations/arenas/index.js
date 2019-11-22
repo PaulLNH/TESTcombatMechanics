@@ -5,7 +5,7 @@ class Arena {
     start_combat_auras, // {String} aura names to start combat
     end_combat_auras,   // {String} aura names to execute at end of combat
     max_turn_aura,      // {String} aura names to execute when reaching max turns
-    loot,               // Loot table
+    loot,               // ?? Loot table - should this be on the enemies
     maxLoot,            // Max number of loot items winner can pick
     maxTurns,           // Max number of turns before maxTurnAuras is executed
     currentTurn         // Current turn

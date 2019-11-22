@@ -1,5 +1,7 @@
 const { newCharacter } = require("../");
 
+// characters have talents
+
 // Get character's username
 const character_name = "Draaxx";
 // Get character template
