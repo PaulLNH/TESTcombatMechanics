@@ -1,64 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Colosseum</title>
-    <!-- Bootstrap 4.0 -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Login Page</title>
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <!-- App specific CSS -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      media="screen"
-      href="assets/css/style.css"
-    />
+    <link href="assets/css/styles.css" rel="stylesheet" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   </head>
-  <body>
-    <div class="row">
-      <div class="col-6" style="text-align: center;">
-        Player 1
-      </div>
-      <div class="col-6" style="text-align: center;">
-        Player 2
-      </div>
-    </div>
-    <div class="wrapper">
-      <!-- Player 1 Ability Buttons -->
-      <div class="row">
-        <!-- Player 1 Ability 1 -->
-        <div class="col-3">
-          <button type="button" class="btn btn-success" id="p1attack1">
-            Slash
-          </button>
-        </div>
-        <!-- Player 1 Ability 2 -->
-        <div class="col-3" style="text-align: center;">
-          <button type="button" class="btn btn-danger" id="p1attack2">
-            Block
-          </button>
-        </div>
-        <!-- Player 1 Ability 3 -->
-        <div class="col-3" style="text-align: center;">
-          <button type="button" class="btn btn-warning" id="p1attack3">
-            Dodge
-          </button>
-        </div>
-        <!-- Player 1 Ability 4 -->
-        <div class="col-3" style="text-align: right;">
-          <!-- <button type="button" class="btn btn-info" id="p1attack4">
-            Attack 4
-          </button> -->
-        </div>
-      </div>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
-    <script src="./assets/js/index.js"></script>
+
+  <body class="text-center">
+    <form class="form-signin">
+      <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+      <label for="email" class="sr-only">Email address</label>
+      <input
+        type="email"
+        id="email"
+        class="form-control"
+        placeholder="Email address"
+        required
+        autofocus
+      />
+      <label for="password" class="sr-only">Password</label>
+      <input
+        type="password"
+        id="password"
+        class="form-control"
+        placeholder="Password"
+        required
+      />
+      <a class="btn btn-lg btn-primary btn-block" onClick="signIn()">Sign in</a>
+      <a href="/signup.html">Don't have an account? Sign up here.</a>
+      <a href="/forgot-password.html">Forgot password? Reset it here.</a>
+    </form>
+    <script>
+      function signIn() {
+        var data = {
+          email: document.forms[0].elements[0].value,
+          password: document.forms[0].elements[1].value
+        };
+        $.ajax({
+          type: "POST",
+          url: "/login",
+          data,
+          success: function(data) {
+            window.location.replace("/game.html");
+          },
+          error: function(xhr) {
+            window.alert(JSON.stringify(xhr));
+            window.location.replace("/index.html");
+          }
+        });
+      }
+    </script>
   </body>
 </html>
