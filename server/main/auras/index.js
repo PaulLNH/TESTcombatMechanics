@@ -40,4 +40,16 @@ const createAuras = () => {
 }
 createAuras();
 
-module.exports = { auras };
+const addAura = name => {
+  for (let aura in Auras) {
+    if (Auras.hasOwnProperty(aura) && aura === name) {
+      return new Aura(Auras[name]);
+    }
+  }
+}
+
+const listAuras = () => {
+  return Object.keys(Auras);
+}
+
+module.exports = { auras, addAura, listAuras };
