@@ -1,4 +1,4 @@
-const { actions } = require("./actions");
+const { actions, addAction } = require("./actions");
 const Entities = require("./entities_template.json");
 
 class Entity {
@@ -38,14 +38,23 @@ class Entity {
     this.max_initiative = max_initiative;
     this.current_initiative = current_initiative;
     this.talents = talents;
-    this.action = actions;
+    this.actions = actions;
     this.auras = auras;
   }
 }
 
 const newCharacter = (name, type) => {
   if (Entities.hasOwnProperty(type)) {
-    return new Entity(name, Entities[type]);
+    const newEntity = new Entity(name, Entities[type]);
+    // for each action in the list, create a new action via constructor
+    // and push to the list, swapping old list of strings for new list of actions
+    const actionList = newEntity.actions;
+    const actions = [];
+    actionList.forEach(actionName => {
+      actions.push(addAction(actionName));
+    });
+    newEntity.actions = actions;
+    return newEntity;
   }
 };
 

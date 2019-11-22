@@ -41,4 +41,16 @@ const createActions = () => {
 };
 createActions();
 
-module.exports = { actions };
+const addAction = name => {
+  for (let action in Actions) {
+    if (Actions.hasOwnProperty(action) && action === name) {
+      return new Action(Actions[name]);
+    }
+  }
+}
+
+const listActions = () => {
+  return Object.keys(Actions);
+}
+
+module.exports = { actions, addAction, listActions };
