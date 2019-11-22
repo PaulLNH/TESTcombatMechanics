@@ -22,11 +22,11 @@ const handlebarsOptions = {
   // viewEngine: 'handlebars',
   viewEngine: {
     extName: '.html',
-    partialsDir: path.resolve('./templates/'),
-    layoutsDir: path.resolve('./templates/'),
+    partialsDir: path.resolve('./email_templates/'),
+    layoutsDir: path.resolve('./email_templates/'),
     defaultLayout: 'forgot-password.html'
   },
-  viewPath: path.resolve('./templates/'),
+  viewPath: path.resolve('./email_templates/'),
   extName: '.html'
 };
 
@@ -54,7 +54,7 @@ router.post('/forgot-password', asyncMiddleware(async (req, res, next) => {
     to: user.email,
     from: email,
     template: 'forgot-password',
-    subject: 'Panic in the Dark Password Reset',
+    subject: 'Colosseum Password Reset',
     context: {
       url: `http://localhost:${process.env.PORT || 3000}/reset-password.html?token=${token}`,
       name: user.name
@@ -89,7 +89,7 @@ router.post('/reset-password', asyncMiddleware(async (req, res, next) => {
     to: user.email,
     from: email,
     template: 'reset-password',
-    subject: 'Panic in the Dark Password Reset Confirmation',
+    subject: 'Colosseum Password Reset Confirmation',
     context: {
       name: user.name
     }
