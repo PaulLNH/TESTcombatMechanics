@@ -1,5 +1,5 @@
 // const Arena = require("./game/arena");
-const { createPlayer } = require("./game/entities");
+// const { createPlayer } = require("./game/entities");
 
 // Game is created
   // Game has Entities

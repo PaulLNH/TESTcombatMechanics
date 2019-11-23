@@ -1,0 +1,34 @@
+{
+  "name": "colosseum",
+  "version": "1.0.0",
+  "description": "Become a renown gladiator by wining many victories in arenas far and wide from Lybia, Tunisia, Croatia, France and the infamous Roman arena",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PaulLNH/TESTcombatMechanics.git"
+  },
+  "author": "Paul Laird",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PaulLNH/TESTcombatMechanics/issues"
+  },
+  "homepage": "https://github.com/PaulLNH/TESTcombatMechanics#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.7",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.7.12",
+    "nodemailer": "^6.3.1",
+    "nodemailer-express-handlebars": "^3.1.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "socket.io": "^2.3.0"
+  }
+}
