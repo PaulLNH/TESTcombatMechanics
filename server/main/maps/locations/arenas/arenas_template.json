@@ -1,0 +1,14 @@
+{
+  "rome": {
+    "name": "Rome",
+    "description": "The Colosseum of Rome is the largest and most famous of the arenas.",
+    "auras": ["roar_of_the_crowd"],
+    "start_combat_auras": ["roar_of_the_crowd"],
+    "end_combat_auras": ["champion"],
+    "max_turn_auras": ["angry_crowd"],
+    "loot": ["greaves"],
+    "max_loot": 1,
+    "max_turns": 0,
+    "current_turn": 0
+  }
+}

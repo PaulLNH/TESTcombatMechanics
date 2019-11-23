@@ -17,7 +17,7 @@
     "current_initiative": 0,
     "talents": {},
     "actions": ["slash", "block", "dodge"],
-    "auras": []
+    "auras": ["crowd_favorite"]
   },
   "samnite": {
     "type": "Samnite",

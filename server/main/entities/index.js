@@ -1,5 +1,7 @@
 const { addAction } = require("./actions");
+const { addAura } = require("../auras");
 const Entities = require("./entities_template.json");
+const shortid = require("shortid");
 
 // Entities:
 // Characters - have talents
@@ -48,10 +50,11 @@ class Entity {
     this.talents = talents;
     this.actions = actions;
     this.auras = auras;
+    this.entity_id = shortid.generate();
   }
 }
 
-const newCharacter = (name, type) => {
+const newEntity = (name, type) => {
   if (Entities.hasOwnProperty(type)) {
     const newEntity = new Entity(name, Entities[type]);
     // for each action in the list, create a new action via constructor
@@ -62,8 +65,18 @@ const newCharacter = (name, type) => {
       actions.push(addAction(actionName));
     });
     newEntity.actions = actions;
+
+    // for each aura in the list, create a new aura via constructor
+    // and push to the list, swapping old list of strings for new list of auras
+    const auraList = newEntity.auras;
+    const auras = [];
+    auraList.forEach(auraName => {
+      auras.push(addAura(auraName), newEntity);
+    });
+    newEntity.auras = auras;
+
     return newEntity;
   }
 };
 
-module.exports = { newCharacter };
+module.exports = { newEntity };

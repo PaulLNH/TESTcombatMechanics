@@ -1,36 +1,54 @@
+const Arenas = require("./arenas_template.json");
+const { addAura } = require("../../../auras");
+const shortid = require("shortid");
+
 class Arena {
   constructor(
-    entities,           // Entity objects in this arena
-    auras,              // Aura objects present in this arena
-    start_combat_auras, // {String} aura names to start combat
-    end_combat_auras,   // {String} aura names to execute at end of combat
-    max_turn_aura,      // {String} aura names to execute when reaching max turns
-    loot,               // ?? Loot table - should this be on the enemies
-    maxLoot,            // Max number of loot items winner can pick
-    maxTurns,           // Max number of turns before maxTurnAuras is executed
-    currentTurn         // Current turn
+    entities,
+    {
+      name,
+      description,
+      auras,
+      start_combat_auras,
+      end_combat_auras,
+      max_turn_auras,
+      loot,
+      max_loot,
+      max_turns,
+      current_turn
+    }
   ) {
     this.entities = entities;
+    this.name = name;
+    this.description = description;
     this.auras = auras;
     this.start_combat_auras = start_combat_auras;
     this.end_combat_auras = end_combat_auras;
-    this.max_turn_aura = max_turn_aura;
+    this.max_turn_auras = max_turn_auras;
     this.loot = loot;
-    this.maxLoot = maxLoot;
-    this.maxTurns = maxTurns;
-    this.currentTurn = currentTurn;
+    this.max_loot = max_loot;
+    this.max_turns = max_turns;
+    this.current_turn = current_turn;
+    this.arena_id = shortid.generate();
   }
-  turn(n) {
-    // Should a new turn be it's own class?
+  newTurn() {
+    this.turn++;
+    return this;
+  }
+  startMatch() {
+    // Apply starting auras to entities
+    this.start_combat_auras.forEach(aura => {
+      this.entities.forEach(entity => {
+        apply(aura).to(entity);
+      });
+    });
     return this;
   }
 }
 
-// TODO - Arenas interaction
-
 // Rome
-// .turn(1)
-// .combat()
+// .newTurn() This increments the turn counter
+// .startMatch() Applies starting auras, sets endurance, ect
 // .source(Draaxx)
 // .performs("whirlwind")
 // .on("all enemies")
@@ -40,16 +58,44 @@ class Arena {
 // .on(Gayacys)
 // .end();
 
-const Rome = new Arena(
-  ["Draaxx", "Freddy", "Karyn"],
-  ["fun", "happiness", "silly"],
-  "slash",
-  "end combat aura",
-  1,
-  1,
-  1,
-  1,
-  1
-);
+// List avaiable arenas
+const listArenas = () => {
+  return Object.keys(Arenas);
+};
 
-console.log(Rome);
+const newArena = (entities, name) => {
+  if (Arenas.hasOwnProperty(name)) {
+    const newArena = new Arena(entities, Arenas[name]);
+
+    // Build starting auras
+    const start_combat_auras = [];
+    newArena.start_combat_auras.forEach(aura => {
+      const newAura = addAura(aura, "arena", newArena.arena_id);
+      start_combat_auras.push(newAura);
+    });
+    // Replace string values with aura objects
+    newArena.start_combat_auras = start_combat_auras;
+
+    // Build ending auras
+    const end_combat_auras = [];
+    newArena.end_combat_auras.forEach(aura => {
+      const newAura = addAura(aura, "arena", newArena.arena_id);
+      end_combat_auras.push(newAura);
+    });
+    // Replace string values with aura objects
+    newArena.end_combat_auras = end_combat_auras;
+
+    // Build max turn auras
+    const max_turn_auras = [];
+    newArena.max_turn_auras.forEach(aura => {
+      const newAura = addAura(aura, "arena", newArena.arena_id);
+      max_turn_auras.push(newAura);
+    });
+    // Replace string values with aura objects
+    newArena.max_turn_auras = max_turn_auras;
+
+    return newArena;
+  }
+};
+
+module.exports = { newArena, listArenas };

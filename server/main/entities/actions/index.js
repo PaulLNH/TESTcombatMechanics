@@ -1,5 +1,6 @@
 const Actions = require("./actions_template.json");
-const { auras: Auras } = require("../../auras");
+const { addAura } = require("../../auras");
+const shortid = require("shortid");
 
 class Action {
   constructor(
@@ -15,6 +16,7 @@ class Action {
     this.duration = duration;
     this.initiative = initiative;
     this.auras = auras;
+    this.action_id = shortid.generate();
   }
 }
 
@@ -31,7 +33,7 @@ const createActions = () => {
         // for each aura in the actions auras arrray
         Actions[action].auras.forEach(aura => {
           // push the aura to the aurasList
-          auraList.push(Auras[aura]);
+          auraList.push(addAura(aura));
         });
       }
       // create new action with auras if applicable
