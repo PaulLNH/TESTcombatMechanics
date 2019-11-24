@@ -5,39 +5,23 @@ class Aura {
   constructor(
     {
       name,
-      description,
-      affects,
-      duration,
-      max_stacks,
-      current_stacks,
-      instant_damage,
-      instant_block,
-      tick_damage,
-      tick_block,
-      tick_rate,
-      current_tick,
-      initiative,
-      applies,
-      applies_condition
+      source_description,
+      parent_description,
+      target_description,
+      triggers
     },
-    source_id
+    source_id,
+    parent_id,
+    targets
   ) {
     this.name = name;
-    this.description = description;
-    this.affects = affects;
-    this.duration = duration;
-    this.max_stacks = max_stacks;
-    this.current_stacks = current_stacks;
-    this.instant_damage = instant_damage;
-    this.instant_block = instant_block;
-    this.tick_damage = tick_damage;
-    this.tick_block = tick_block;
-    this.tick_rate = tick_rate;
-    this.current_tick = current_tick;
-    this.initiative = initiative;
-    this.applies = applies;
-    this.applies_condition = applies_condition;
+    this.source_description = source_description;
+    this.parent_description = parent_description;
+    this.target_description = target_description;
+    this.triggers = triggers;
     this.source_id = source_id;
+    this.parent_id = parent_id;
+    this.targets = targets;
     this.id = shortid.generate();
   }
 }
@@ -47,17 +31,32 @@ class Aura {
 // const createAuras = () => {
 //   for (let aura in Auras) {
 //     if (Auras.hasOwnProperty(aura)) {
-//       auras[aura] = new Aura(Auras[aura]);
+//       const newAura = new Aura(Auras[name]);
+//       Game[newAura.id] = newAura;
+//       auras[aura] = newAura;
 //     }
 //   }
-// }
+// };
 // createAuras();
 
-// Use this to create unique auras on the fly
-const addAura = (name, source_id) => {
+// Use this to create unique aura instance
+const addAura = (name, source_id, parent_id, targets) => {
   for (let aura in Auras) {
     if (Auras.hasOwnProperty(aura) && aura === name) {
-      return new Aura(Auras[name], source_id);
+      const newAura = new Aura(Auras[name], source_id, parent_id, targets);
+      Game[newAura.id] = newAura;
+      // Logic for on_add trigger
+      const on_add_triggers = [
+        "perform_to_source_on_add",
+        "perform_to_parent_on_add",
+        "perform_to_targets_on_add"
+      ];
+      // Resolve each trigger by looping through triggers object
+      // newAura[trigger].triggers (newAura.triggers.perform_to_source_on_add)
+      on_add_triggers.forEach(trigger => {
+        resolveOnAddTriggers(newAura, trigger);
+      });
+      return newAura;
     }
   }
 };
@@ -67,37 +66,53 @@ const listAuras = () => {
   return Object.keys(Auras);
 };
 
-// Apply aura
-const applyAura = (aura, recipient) => {
-  console.log(`${aura.name} is being applied to ${recipient.name}`);
-  // Give recipient the aura object
-  recipient.auras.push(aura);
-  // "aura_type": "buff",
-  // "duration": 1,
-  // "max_stacks": 1,
-  // "current_stacks": 1,
-  // "instant_damage": 0,
-  recipient.current_health -= aura.instant_damage;
-  // "bonus_damage": 0,
-  recipient.bonus_damage += aura.bonus_damage;
-  // "instant_block": 0,
-  recipient.current_block += aura.instant_block;
-  // "bonus_block": 0,
-  recipient.bonus_block += aura.bonus_block;
-  // "tick_damage": 0,
-  // "tick_block": 0,
-  // "tick_rate": 1,
-  // "initiative": -1,
-  recipient.current_initiative += aura.initiative;
-  // "applies": [],
-  // "applies_condition": "test"
-   if (aura.applies_condition === "instantiation") {
-     // TODO - OK... So this sucks. I think we want to restructure auras. We want to be able to be flexible on how these auras interact and apply other auras.
-     const applyAura = addAura(aura.applies[0], aura.type, aura.aura_id);
-     // Not going to do much more on this until I look at how the auras object should look.
-     // We want a better way to track ticks and figure out how combat invokes this.
-    //  recipient.auras.push(applyAura(applyAura, recipient));
-   }
+const resolveOnAddTriggers = (aura, trigger) => {
+  console.log(aura, "aura");
+  console.log(trigger, "trigger");
+  for (let resolve in aura.triggers[trigger]) {
+    // switch case to target each trigger
+    switch (resolve) {
+      case "max_health":
+        console.log(resolve.max_health, "Expected: max_health");
+        break;
+      case "current_health":
+        console.log(resolve, "Expected: current_health");
+        break;
+      case "max_endurance":
+        console.log(resolve, "Expected: max_endurance");
+        break;
+      case "current_endurance":
+        console.log(resolve, "Expected: current_endurance");
+        break;
+      case "bonus_damage":
+        console.log(resolve, "Expected: bonus_damage");
+        break;
+      case "max_block":
+        console.log(resolve, "Expected: max_block");
+        break;
+      case "current_block":
+        console.log(resolve, "Expected: current_block");
+        break;
+      case "bonus_block":
+        console.log(resolve, "Expected: bonus_block");
+        break;
+      case "max_initiative":
+        console.log(resolve, "Expected: max_initiative");
+        break;
+      case "current_initiative":
+        console.log(resolve, "Expected: current_initiative");
+        break;
+      case "auras":
+        console.log(resolve, "Expected: auras");
+        break;
+      case "destroy":
+        console.log(resolve, "Expected: destroy");
+        break;
+      case "ticks_remaining":
+        console.log(resolve, "Expected: ticks_remaining");
+        break;
+    }
+  }
 };
 
-module.exports = { addAura, applyAura, listAuras };
+module.exports = { addAura, listAuras };

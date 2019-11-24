@@ -2,7 +2,7 @@ module.exports = Game = {};
 // TODO - Create a node/express server
 // J/K see app.js in root
 
-const { listAuras, applyAura, addAura } = require("./main/auras");
+const { listAuras, addAura } = require("./main/auras");
 const { listActions, addAction } = require("./main/entities/actions");
 const { newEntity } = require("./main/entities");
 const { newArena } = require("./main/maps/locations/arenas");
@@ -30,8 +30,9 @@ const Computer = newEntity(computer_name, computer_type);
 const Rome = newArena([Player, Computer], "rome");
 console.log(Rome, "Rome");
 
-Player.auras.forEach(aura => {
-  applyAura(aura, Player);
-});
+// No longer using applyAura - using triggers instead
+// Player.auras.forEach(aura => {
+//   applyAura(aura, Player);
+// });
 
 console.log(Game, "Game Object");

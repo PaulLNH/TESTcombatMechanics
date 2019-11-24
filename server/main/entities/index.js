@@ -73,7 +73,8 @@ const newEntity = (name, type) => {
     const auraList = newEntity.auras;
     const auras = [];
     auraList.forEach(auraName => {
-      auras.push(addAura(auraName), newEntity);
+      // addAura(name, source_id, parent_id, targets)
+      auras.push(addAura(auraName, newEntity.id, newEntity.id), newEntity);
     });
     newEntity.auras = auras;
 

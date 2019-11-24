@@ -21,28 +21,29 @@ class Action {
   }
 }
 
-const actions = {};
-const createActions = () => {
-  // loop through keys in actions obj
-  for (let action in Actions) {
-    // if the key exists
-    if (Actions.hasOwnProperty(action)) {
-      // create an aura list
-      const auraList = [];
-      // if the action has an aura
-      if (Actions[action].auras.length) {
-        // for each aura in the actions auras arrray
-        Actions[action].auras.forEach(aura => {
-          // push the aura to the aurasList
-          auraList.push(addAura(aura));
-        });
-      }
-      // create new action with auras if applicable
-      actions[action] = new Action(Actions[action], ...auraList);
-    }
-  }
-};
-createActions();
+// const actions = {};
+// const createActions = () => {
+//   // loop through keys in actions obj
+//   for (let action in Actions) {
+//     // if the key exists
+//     if (Actions.hasOwnProperty(action)) {
+//       // create an aura list
+//       const auraList = [];
+//       // if the action has an aura
+//       if (Actions[action].auras.length) {
+//         // for each aura in the actions auras arrray
+//         Actions[action].auras.forEach(aura => {
+//           // push the aura to the aurasList
+//           // addAura(name, source_id, parent_id, targets)
+//           auraList.push(addAura(aura));
+//         });
+//       }
+//       // create new action with auras if applicable
+//       actions[action] = new Action(Actions[action], ...auraList);
+//     }
+//   }
+// };
+// createActions();
 
 const addAction = name => {
   for (let action in Actions) {
@@ -58,4 +59,4 @@ const listActions = () => {
   return Object.keys(Actions);
 };
 
-module.exports = { actions, addAction, listActions };
+module.exports = { addAction, listActions };

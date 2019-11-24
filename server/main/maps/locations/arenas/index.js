@@ -70,7 +70,8 @@ const newArena = (entities, name) => {
     // Build starting auras
     const start_combat_auras = [];
     newArena.start_combat_auras.forEach(aura => {
-      const newAura = addAura(aura, "arena", newArena.arena_id);
+      // addAura(name, source_id, parent_id, targets)
+      const newAura = addAura(aura, newArena.id, newArena.id);
       start_combat_auras.push(newAura);
     });
     // Replace string values with aura objects
@@ -79,7 +80,7 @@ const newArena = (entities, name) => {
     // Build ending auras
     const end_combat_auras = [];
     newArena.end_combat_auras.forEach(aura => {
-      const newAura = addAura(aura, "arena", newArena.arena_id);
+      const newAura = addAura(aura, newArena.id, newArena.id);
       end_combat_auras.push(newAura);
     });
     // Replace string values with aura objects
@@ -88,7 +89,7 @@ const newArena = (entities, name) => {
     // Build max turn auras
     const max_turn_auras = [];
     newArena.max_turn_auras.forEach(aura => {
-      const newAura = addAura(aura, "arena", newArena.arena_id);
+      const newAura = addAura(aura, newArena.id, newArena.id);
       max_turn_auras.push(newAura);
     });
     // Replace string values with aura objects
