@@ -20,7 +20,6 @@ class Aura {
       applies,
       applies_condition
     },
-    source_type,
     source_id
   ) {
     this.name = name;
@@ -38,9 +37,8 @@ class Aura {
     this.initiative = initiative;
     this.applies = applies;
     this.applies_condition = applies_condition;
-    this.source_type = source_type;
     this.source_id = source_id;
-    this.aura_id = shortid.generate();
+    this.id = shortid.generate();
   }
 }
 
@@ -56,10 +54,10 @@ class Aura {
 // createAuras();
 
 // Use this to create unique auras on the fly
-const addAura = (name, source_type, source_id) => {
+const addAura = (name, source_id) => {
   for (let aura in Auras) {
     if (Auras.hasOwnProperty(aura) && aura === name) {
-      return new Aura(Auras[name], source_type, source_id);
+      return new Aura(Auras[name], source_id);
     }
   }
 };

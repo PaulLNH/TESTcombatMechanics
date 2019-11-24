@@ -1,4 +1,5 @@
 const Actions = require("./actions_template.json");
+const Game = require("../../../server");
 const { addAura } = require("../../auras");
 const shortid = require("shortid");
 
@@ -16,7 +17,7 @@ class Action {
     this.duration = duration;
     this.initiative = initiative;
     this.auras = auras;
-    this.action_id = shortid.generate();
+    this.id = shortid.generate();
   }
 }
 
@@ -46,13 +47,15 @@ createActions();
 const addAction = name => {
   for (let action in Actions) {
     if (Actions.hasOwnProperty(action) && action === name) {
-      return new Action(Actions[name]);
+      const newAction = new Action(Actions[name]);
+      Game[newAction.id] = newAction;
+      return newAction;
     }
   }
-}
+};
 
 const listActions = () => {
   return Object.keys(Actions);
-}
+};
 
 module.exports = { actions, addAction, listActions };

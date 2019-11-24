@@ -1,5 +1,6 @@
 const { addAction } = require("./actions");
 const { addAura } = require("../auras");
+const Game = require("../../server");
 const Entities = require("./entities_template.json");
 const shortid = require("shortid");
 
@@ -50,13 +51,14 @@ class Entity {
     this.talents = talents;
     this.actions = actions;
     this.auras = auras;
-    this.entity_id = shortid.generate();
+    this.id = shortid.generate();
   }
 }
 
 const newEntity = (name, type) => {
   if (Entities.hasOwnProperty(type)) {
     const newEntity = new Entity(name, Entities[type]);
+    Game[newEntity.id] = newEntity;
     // for each action in the list, create a new action via constructor
     // and push to the list, swapping old list of strings for new list of actions
     const actionList = newEntity.actions;

@@ -1,3 +1,4 @@
+module.exports = Game = {};
 // TODO - Create a node/express server
 // J/K see app.js in root
 
@@ -27,8 +28,10 @@ const Computer = newEntity(computer_name, computer_type);
 // console.log(Computer);
 
 const Rome = newArena([Player, Computer], "rome");
-console.log(Rome);
+console.log(Rome, "Rome");
 
 Player.auras.forEach(aura => {
   applyAura(aura, Player);
 });
+
+console.log(Game, "Game Object");

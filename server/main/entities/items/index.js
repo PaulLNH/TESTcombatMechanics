@@ -1,5 +1,7 @@
 const Items = require("./items_template.json");
+const Game = require("../../../server");
 const { auras: Auras } = require("../../auras");
+const shortid = require("shortid");
 
 class Item {
   constructor(
@@ -23,6 +25,7 @@ class Item {
     this.agility_aura = agility_aura;
     this.current_item_slot = null;
     this.auras = auras;
+    this.id = shortid.generate();
   }
   equip(slot) {
     // TODO - Equip item - puts item in a slot
@@ -63,4 +66,14 @@ const createItems = () => {
 };
 createItems();
 
-module.exports = { items };
+const addItem = name => {
+  for (let item in Items) {
+    if (Items.hasOwnProperty(item) && item === name) {
+      const newItem = new Action(Items[name]);
+      Game[newItem.id] = newItem;
+      return newItem;
+    }
+  }
+};
+
+module.exports = { items, addItem };
